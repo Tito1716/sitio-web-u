@@ -1,10 +1,19 @@
 body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+/*	background: linear-gradient(-90deg, #e2e2e2, #138291);
 	background-size: 400% 400%;
-	animation: gradient 15s ease infinite ;
+	animation: gradient 18s ease infinite ;
 	height: 100vh;
+*/
+margin: 0;
+overflow:hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0,0,0);
 }
 
+
+
+/*AQWUI CONTRLAMOS LA ANMIMACION DEL BACKGROUND GRADIENT */
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -16,9 +25,123 @@ body {
 		background-position: 0% 50%;
 	}
 }
+
+/*ESTOS ENLANCES IMPORTAMOS FUENTES EXTERNAS DE GOOGLE Y ESTILOS DE ICONOS DE BOOTSTRAP*/
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+
+
+
+/*animacion de texto*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+
+
+.anidiv1 {
+  display:inline-block;
+  overflow:hidden;
+  white-space:nowrap;
+  position: absolute;
+  left: 30%;
+
+  
+}
+
+.anidiv1:first-of-type {    /* For increasing performance 
+                       ID/Class should've been used. 
+                       For a small demo 
+                       it's okaish for now */
+  animation: showup 10s infinite;
+}
+
+.anidiv1:last-of-type {
+  width:0;
+  animation: reveal 9s infinite;
+}
+
+.anidiv1:last-of-type span {
+ 
+  animation: slidein 7s infinite;
+}
+
+@keyframes showup {
+    0% {opacity:0;}
+    20% {opacity:1;}
+    80% {opacity:1;}
+    100% {opacity:0;}
+}
+
+@keyframes slidein {
+    30% { margin-left:-800px; }
+    10% { margin-left:-800px; }
+    65% { margin-left:0px; }
+    100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+    0% {opacity:0;width:0px;}
+    20% {opacity:1;width:0px;}
+    60% {width:855px;}
+    80% {opacity:1;}
+    100% {opacity:0;width:355px;}
+}
+
+
+.anidiv1 span {
+  font-size:5vh;
+  color:rgb(243, 243, 243);
+  
+  font-family: sans-serif;
+  font-weight:950;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
+
+.redes{position: relative;left: 86%;top: -3%;} .redes img{width: 12vw;}
+.logoicon{position: relative;top: 2%;}
+
+.backgroundimage{ height: 100vh;width: 100vw;position:absolute;}
+
+/*main html*/
+.divcontainer1{display: flex;justify-content: center;height: auto;position: relative;}
+.div1{background-color: rgba(4, 5, 41, 0.678); height: 50vh; width:30vw;border-radius: 15px;margin: 5%;position: relative;border:orangered 1px solid;}
+.div1 h1 {color: white;text-align: center;font-size:4.2vh;} .div1 p{font-size:2vh;color: white;margin: 8%;text-align: justify;}
+.button1{border-radius: 7px;border:none;color: white;background-color: rgb(23, 184, 212);padding: 2%;font-size:2vh;position: absolute;left: 25%;}
+.button1 a{text-decoration: none;color: white;} .button1 a:hover{color:tomato}
+/*software html*/
+.divcontainer2{display: flex;justify-content: center;height: auto;position: relative;}
+.div2{background-color: rgba(18, 18, 19, 0.678); height: 80vh; width:90vw;border-radius: 15px;margin: 1%;position: relative;border:rgb(20, 22, 141) 1px solid;}
+.div2 h1 {color: white;text-align: center;font-size:4.2vh;} .div2 h3 {color: rgb(224, 168, 47);font-family:sans-serif;font-size:3.1vh;}.div2 p{font-size:2vh;color: white;margin: 8%;text-align: justify;}
+.button2{border-radius: 7px;border:none;color: white;background-color: rgb(7, 31, 97);padding: 4% 20% 5% 20%;font-weight: 600;font-size:2.2vh;position: absolute;left: 13%;}
+.button2 a{text-decoration: none;color: white;} .button2 a:hover{color:tomato} .softwareimg{width: 15vw;position: absolute;left: 75%;bottom: 7%;}
+.carreradiv{position: absolute;display: inline-block;left:22% ;bottom: 25%;}
+/*robotica html*/
+.divcontainer3{display: flex;justify-content: center;height: auto;position: relative;} .div3 iframe{position: relative;left: 29%;margin: 3%;width: 30vw;height: 35vh;border: aqua 3px solid;border-radius: 7px;}
+.div3{background-color: rgba(18, 18, 19, 0.678); height: 80vh; width:90vw;border-radius: 15px;margin: 1%;position: relative;border:rgb(20, 22, 141) 1px solid;}
+.div3 h1 {color: white;text-align: center;font-size:4.2vh;} .div3 h3 {color: rgb(224, 168, 47);font-family:sans-serif;font-size:3.1vh;}.div3 p{font-size:2vh;color: white;margin: 2% 8% 2% 8%;text-align: justify;}
+.button3{border-radius: 7px;border:none;color: white;background-color: rgb(7, 31, 97);padding: 4% 20% 5% 20%;font-weight: 600;font-size:2.2vh;position: absolute;left: 13%;}
+.button3 a{text-decoration: none;color: white;} .button3 a:hover{color:tomato} .softwareimg{width: 15vw;position: absolute;left: 75%;bottom: 7%;}
+.roboticadiv{position: absolute;display: inline-block;left:22% ;bottom: 25%;}
+
+
+
+
+
+
 .fa-2x {
 font-size: 2em;
 }
@@ -39,8 +162,8 @@ overflow:visible;
 }
 
 .main-menu {
-background:#212121;
-border-right:1px solid #e5e5e5;
+background:#141414;
+
 position:fixed;
 top:0;
 bottom:0;
@@ -48,9 +171,9 @@ height:100%;
 left:0;
 width:60px;
 overflow:hidden;
--webkit-transition:width .05s linear;
-transition:width .05s linear;
--webkit-transform:translateZ(0) scale(1,1);
+-webkit-transition:width 0.7s linear;
+transition:width 0.7s linear;
+
 z-index:1000;
 }
 
@@ -62,21 +185,23 @@ margin:7px 0;
 position:relative;
 display:block;
 width:250px;
+
 }
+
+
 
 .main-menu li>a {
 position:relative;
 display:table;
 border-collapse:collapse;
 border-spacing:0;
-color:#fff;
+color:rgb(255, 255, 255);
  font-family: arial;
 font-size: 14px;
 text-decoration:none;
--webkit-transform:translateZ(0) scale(1,1);
--webkit-transition:all .1s linear;
-transition:all .1s linear;
-  
+transition:all 0.65s linear;
+
+
 }
 
 .main-menu .nav-icon {
@@ -97,20 +222,7 @@ width:190px;
   font-family: 'Titillium Web', sans-serif;
 }
 
-.main-menu>ul.logout {
-position:absolute;
-left:0;
-bottom:0;
-}
 
-.no-touch .scrollable.hover {
-overflow-y:hidden;
-}
-
-.no-touch .scrollable.hover:hover {
-overflow-y:auto;
-overflow:visible;
-}
 
 a:hover,a:focus {
 text-decoration:none;
@@ -132,7 +244,10 @@ padding:0;
 .main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
 color:#fff;
 background-color:#5fa2db;
+
 }
+
+
 
 .area {
 float: left;
@@ -147,5 +262,13 @@ height: 100%;
   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 }
 .textoInto{
-    margin-left: 38vw;
+    margin-left: 6%;
+	position: relative;
+	
+	font-size: 1.5rem;
+	color: white;
 }
+
+
+
+h1,p{font-family: sans-serif;}
