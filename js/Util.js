@@ -61,9 +61,7 @@ Util.is = function(elem, selector) {
   return false;
 };
 
-/* 
-	Animate height of an element
-*/
+
 Util.setHeight = function(start, to, element, duration, cb) {
 	var change = to - start,
 	    currentTime = null;
@@ -80,14 +78,11 @@ Util.setHeight = function(start, to, element, duration, cb) {
     }
   };
   
-  //set the height of the element before starting animation -> fix bug on Safari
+  
   element.style.height = start+"px";
   window.requestAnimationFrame(animateHeight);
 };
 
-/* 
-	Smooth Scroll
-*/
 
 Util.scrollTo = function(final, duration, cb, scrollEl) {
   var element = scrollEl || window;
@@ -112,11 +107,7 @@ Util.scrollTo = function(final, duration, cb, scrollEl) {
   window.requestAnimationFrame(animateScroll);
 };
 
-/* 
-  Focus utility classes
-*/
 
-//Move focus to an element
 Util.moveFocus = function (element) {
   if( !element ) element = document.getElementsByTagName("body")[0];
   element.focus();
@@ -126,9 +117,7 @@ Util.moveFocus = function (element) {
   }
 };
 
-/* 
-  Misc
-*/
+
 
 Util.getIndexInArray = function(array, el) {
   return Array.prototype.indexOf.call(array, el);
@@ -143,26 +132,25 @@ Util.cssSupports = function(property, value) {
   }
 };
 
-// merge a set of user options into plugin defaults
-// https://gomakethings.com/vanilla-javascript-version-of-jquery-extend/
+
 Util.extend = function() {
-  // Variables
+
   var extended = {};
   var deep = false;
   var i = 0;
   var length = arguments.length;
 
-  // Check if a deep merge
+
   if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
     deep = arguments[0];
     i++;
   }
 
-  // Merge the object into the extended object
+  
   var merge = function (obj) {
     for ( var prop in obj ) {
       if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
-        // If deep merge and property is an object, merge properties
+        
         if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
           extended[prop] = extend( true, extended[prop], obj[prop] );
         } else {
@@ -172,7 +160,7 @@ Util.extend = function() {
     }
   };
 
-  // Loop through each object and conduct a merge
+ 
   for ( ; i < length; i++ ) {
     var obj = arguments[i];
     merge(obj);
@@ -181,7 +169,7 @@ Util.extend = function() {
   return extended;
 };
 
-// Check if Reduced Motion is enabled
+
 Util.osHasReducedMotion = function() {
   if(!window.matchMedia) return false;
   var matchMediaObj = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -189,10 +177,6 @@ Util.osHasReducedMotion = function() {
   return false; // return false if not supported
 }; 
 
-/* 
-	Polyfills
-*/
-//Closest() method
 if (!Element.prototype.matches) {
 	Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
 }
@@ -209,7 +193,7 @@ if (!Element.prototype.closest) {
 	};
 }
 
-//Custom Event() constructor
+
 if ( typeof window.CustomEvent !== "function" ) {
 
   function CustomEvent ( event, params ) {
@@ -224,9 +208,6 @@ if ( typeof window.CustomEvent !== "function" ) {
   window.CustomEvent = CustomEvent;
 }
 
-/* 
-	Animation curves
-*/
 Math.easeInOutQuad = function (t, b, c, d) {
 	t /= d/2;
 	if (t < 1) return c/2*t*t + b;
@@ -235,9 +216,9 @@ Math.easeInOutQuad = function (t, b, c, d) {
 };
 
 
-/* JS Utility Classes */
+
 (function() {
-  // make focus ring visible only for keyboard navigation (i.e., tab key) 
+
   var focusTab = document.getElementsByClassName('js-tab-focus');
   function detectClick() {
     if(focusTab.length > 0) {
@@ -273,15 +254,15 @@ Math.easeInOutQuad = function (t, b, c, d) {
 
   function initRevealingHero(element) {
     setBottom(element);
-    // create a new node - to be inserted before the sticky element
+    
     createPrevElement(element);
     // on resize -> reset element bottom position
     element.element.addEventListener('update-reveal-hero', function(){
       setBottom(element);
       setPrevElementTop(element);
     });
-    animateRevealingHero.bind(element)(); // set initial status
-    // change opacity of layer
+    animateRevealingHero.bind(element)(); 
+   
     var observer = new IntersectionObserver(revealingHeroCallback.bind(element));
 		observer.observe(element.prevElement);
   };
@@ -301,10 +282,10 @@ Math.easeInOutQuad = function (t, b, c, d) {
 
   function revealingHeroCallback(entries, observer) {
 		if(entries[0].isIntersecting) {
-      if(this.scrollingFn) return; // listener for scroll event already added
+      if(this.scrollingFn) return; 
       revealingHeroInitEvent(this);
     } else {
-      if(!this.scrollingFn) return; // listener for scroll event already removed
+      if(!this.scrollingFn) return; 
       window.removeEventListener('scroll', this.scrollingFn);
       updateOpacityValue(this, 0);
       this.scrollingFn = false;
@@ -346,7 +327,7 @@ Math.easeInOutQuad = function (t, b, c, d) {
     element.element.style.bottom = ''+translateValue+'px';
   };
 
-  //initialize the Revealing Hero objects
+ 
   var revealingHero = document.getElementsByClassName('js-revealing-hero');
   var stickySupported = Util.cssSupports('position', 'sticky') || Util.cssSupports('position', '-webkit-sticky');
 	if( revealingHero.length > 0 && stickySupported) {
@@ -363,7 +344,7 @@ Math.easeInOutQuad = function (t, b, c, d) {
       resizingId = setTimeout(doneResizing, 100);
     });
 
-    // wait for font to be loaded
+  
     document.fonts.onloadingdone = function (fontFaceSetEvent) {
       doneResizing();
     };
